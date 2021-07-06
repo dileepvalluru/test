@@ -1,16 +1,16 @@
 version: 0.2
             
 phases:
-
-  install: 
+  install:
+    runtime-versions:
+      golang: 1.12
     commands:
-      - echo"installing"
+      - echo "installing"
 
   pre_build: 
     commands:
-
       # Ensure code passes all lint tests
-      - echo"prebuild"
+      - echo "prebuild"
 
   build:
     commands:
