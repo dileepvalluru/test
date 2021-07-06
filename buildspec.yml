@@ -14,8 +14,8 @@ phases:
 
   build:
     commands:
-
-      # Build our application
+      - set GOOS=linux
+      - set GOARCH=amd64
       - go build -o application
 
 artifacts:
