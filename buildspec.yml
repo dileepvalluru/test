@@ -21,4 +21,7 @@ phases:
 artifacts:
   files:
     - buildspec.yml
-    - go/*
+    - public/*
+    - application.go
+    - application
+    - cron.yaml
