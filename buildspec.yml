@@ -14,14 +14,11 @@ phases:
 
   build:
     commands:
-      - set GOOS=linux
-      - set GOARCH=amd64
-      - go build -o application
+      - echo "building"
 
 artifacts:
   files:
     - buildspec.yml
     - public/*
     - application.go
-    - application
     - cron.yaml
