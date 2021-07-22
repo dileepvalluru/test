@@ -1,0 +1,24 @@
+---
+Parameters:
+  EnvTag:
+    Type: String
+    Description: Production environment tag for resources
+    Default: Production
+
+Resources:
+  NewSQS:
+    Type: AWS::SQS::Queue
+    Properties: 
+      ContentBasedDeduplication: Boolean
+      DelaySeconds: Integer
+      FifoQueue: Boolean #no need in case of standard queue
+      KmsDataKeyReusePeriodSeconds: Integer
+      KmsMasterKeyId: String
+      MaximumMessageSize: Integer
+      MessageRetentionPeriod: Integer
+      QueueName: String
+      ReceiveMessageWaitTimeSeconds: Integer
+      RedrivePolicy: Json
+      Tags: 
+        - !Ref EnvTag
+      VisibilityTimeout: Integer

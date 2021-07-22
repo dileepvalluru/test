@@ -1,0 +1,28 @@
+---
+Parameters:
+  SQSAlarm:
+    Type: String
+    Description: Alarm for existing SQS Queues
+    Default: Queue1
+
+Resources:
+  MyAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName:
+        !Ref SQSAlarm
+      Namespace: AWS/SQS
+      MetricName: "QueueName"
+      Statistic: Average
+      Period: 60
+      EvaluationPeriods: 1
+      Threshold: 60
+      ComparisonOperator: GreaterThanThreshold
+      MetricName: ApproximateAgeOfOldestMessage
+      AlarmActions:
+        - arn:aws:sns:us-east-1:589557565942:SQS-Oldest-Message
+      Dimensions:
+        - Name: QueueUrl
+          Value: https://queue.amazonaws.com/589557565942/Queue1
+            
+              

@@ -1,0 +1,24 @@
+---
+Resources:
+  MySQS:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: Queue4
+
+  MyAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: "AlarmBasedonSQS1"
+      MetricName: "QueueName"
+      Namespace: AWS/SQS
+      Statistic: Average
+      Period: 60
+      EvaluationPeriods: 1
+      Threshold: 60
+      ComparisonOperator: GreaterThanThreshold
+      MetricName: ApproximateAgeOfOldestMessage
+      AlarmActions:
+        - arn:aws:sns:us-east-1:589557565942:SQS-Oldest-Message
+      Dimensions:
+        - Name: QueueName
+          Value: Queue4
