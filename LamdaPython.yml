@@ -5,8 +5,7 @@ Resources:
     Type: AWS::Lambda::Function
     Properties:
       Runtime: python3.8
-      FunctionName: test6
-      Role: arn:aws:iam::589557565942:role/SQSroleforLambda
+      FunctionName: test1
       Handler: index.lambda_handler
       Code:
         ZipFile: |
