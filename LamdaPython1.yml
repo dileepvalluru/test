@@ -28,7 +28,7 @@ Resources:
                     },
                     'Body': {
                         'Text': {
-                            'Data': 'message are piling up in the so and so SQS queue.Please check the queues',
+                            'Data': 'Changes made in only LambdaPython1.yml',
                             'Charset': 'ASCII'
                         },
                     },
